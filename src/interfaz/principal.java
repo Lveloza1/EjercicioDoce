@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author USUARIO
@@ -27,21 +29,166 @@ public class principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtTotal = new javax.swing.JTextField();
+        txtDias = new javax.swing.JTextField();
+        txtPeliculas = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setText("12. Alquiler de películas");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, 20));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setText("Total de películas alquiladas");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 180, 20));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setText("Dias de alquiler ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 110, -1));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setText("Total a pagar");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 90, 30));
+
+        txtTotal.setEditable(false);
+        getContentPane().add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 90, 30));
+
+        txtDias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDiasActionPerformed(evt);
+            }
+        });
+        txtDias.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDiasKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 90, 30));
+
+        txtPeliculas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPeliculasKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txtPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 90, 30));
+
+        jButton1.setText("Calcular total");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 100, 40));
+
+        jButton2.setText("Borrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 70, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPeliculasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPeliculasKeyTyped
+ char c=evt.getKeyChar(); 
+       
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep();    
+              evt.consume(); 
+          }  
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPeliculasKeyTyped
+
+    private void txtDiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiasActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDiasActionPerformed
+
+    private void txtDiasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiasKeyTyped
+ char c=evt.getKeyChar(); 
+       
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep();    
+              evt.consume(); 
+          }  
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDiasKeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+int tpeliculas, tdias;
+double total1,x, total2;
+String total;
+
+if(txtPeliculas.getText().trim().isEmpty()){
+        JOptionPane.showMessageDialog(this, "Digite el número de peliculas","error", JOptionPane.ERROR_MESSAGE);  
+        txtPeliculas.requestFocusInWindow();
+        txtPeliculas.selectAll();
+
+     }  
+else if(txtDias.getText().trim().isEmpty()){
+        JOptionPane.showMessageDialog(this, "Digite la cantidad de dias","error", JOptionPane.ERROR_MESSAGE);  
+        txtDias.requestFocusInWindow(); 
+         txtDias.selectAll();    
+
+     }
+    
+else{
+         
+    tpeliculas=Integer.parseInt(txtPeliculas.getText());
+    tdias=Integer.parseInt(txtDias.getText());
+
+     if(tpeliculas==0) {
+       JOptionPane.showMessageDialog(this, "No se aplica cobro","Note", JOptionPane.INFORMATION_MESSAGE);  
+        txtPeliculas.requestFocusInWindow(); 
+        txtPeliculas.selectAll();  
+       }  
+
+     else if(tdias==0){
+     JOptionPane.showMessageDialog(this, "No se realizó alquiler","Note", JOptionPane.INFORMATION_MESSAGE);  
+        txtDias.requestFocusInWindow(); 
+        txtDias.selectAll();   
+        }
+    if(tpeliculas==1){
+        x=(tdias*1500);
+        total=String.valueOf(x);
+        txtTotal.setText(total);
+        }     
+    else if(tpeliculas>1){
+    
+    total1=((tpeliculas*1500)-1500);
+     total2=(total1*tdias);
+     
+     total=String.valueOf(total2);
+    txtTotal.setText(total);
+        
+    }
+     
+     
+}
+         
+     
+     
+     
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+ txtPeliculas.setText("");
+     txtDias.setText("");
+     txtTotal.setText("");
+     txtPeliculas.requestFocusInWindow();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +226,14 @@ public class principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField txtDias;
+    private javax.swing.JTextField txtPeliculas;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
